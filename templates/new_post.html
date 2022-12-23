@@ -1,0 +1,52 @@
+{% include 'header.html' %}
+
+<h1><a href="{{ url_for('new_post') }}">新規登録</a></h1>
+<form action="{{ new_post }}", method="post", novalidate>
+  {{ form.csrf_token }}
+  <table>
+    <tr>
+      <td>
+        {{ form.author.label }}
+      </td>
+      <td>
+        {{ form.author(size=20) }}
+      </td>
+      {% for err in form.author.errors %}
+      <td>
+        <span style="color: red;">{{ err }}</span>
+      </td>
+      {% endfor %}
+
+    <tr>
+      <td>
+        {{ form.title.label }}
+      </td>
+      <td>
+        {{ form.title(size=20) }}
+      </td>
+      {% for err in form.title.errors %}
+      <td>
+        <span style="color: red;">{{ err }}</span>
+      </td>
+      {% endfor %}
+    </tr>
+    <tr>
+      <td>記事</td>
+      <td>
+        {{ ckeditor.load(custom_url=url_for('static', filename='ckeditor/ckeditor.js')) }}
+        {{ form.article }}
+      </td>
+      <td>
+        {% for err in form.article.errors %}
+      <td>
+        <span style="color: red;">{{ err }}</span>
+      </td>
+      {% endfor %}
+      </td>
+    </tr>
+  </table>
+
+
+  {{ form.submit }}
+</form>
+{% include 'footer.html' %}

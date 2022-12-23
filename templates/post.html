@@ -1,0 +1,9 @@
+{% include 'header.html' %}
+<h1>{{ post.title }}</h1>
+<h2>{{ post.author }}</h2>
+<div>
+  {{ post.article|safe }}
+</div>
+
+<a href="{{ url_for('home') }}"><button>Home</button></a>
+{% include 'footer.html' %}
