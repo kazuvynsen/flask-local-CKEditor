@@ -15,7 +15,7 @@ db = SQLAlchemy()
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
 app.config['SQLALCHEMY_TRACk_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = SECRET_KEY
-app.config['CKEDITOR_PKG_TYPE'] = 'basic'
+app.config['CKEDITOR_PKG_TYPE'] = 'standard'
 app.config['CKEDITOR_SERVE_LOCAL'] = True
 db.init_app(app)
 
